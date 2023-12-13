@@ -13,13 +13,14 @@ def index():
 
 @app.route('/truecaller/', methods=['GET', 'POST'])
 async def truecaller_info():
-    id = "a1i0---ibn4qukyFCnejubE9jA1ZC9T6jmYXAhg2q-vispzIbfBi4VzlE7-cio81"
+    id = "a1i0I--jiay5xFzVC6nP-uHLMkTKkCN3goLtkd3OyRhw0L13EFSTKSAi2742yK81"
     if request.method == "POST":
         phone_numbers = request.form.get("contact")  # Change request.POST to request.form
         phone_numbers_list = phone_numbers.split(',')
+        num_lst=[i.strip() for i in phone_numbers_list]
         results = {}
 
-        for phone_number in phone_numbers_list:
+        for phone_number in num_lst:
             i=phone_number
             if len(phone_number)==10:
                 phone_number = "+1"+phone_number
